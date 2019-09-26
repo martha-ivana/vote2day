@@ -1,22 +1,28 @@
 <template>
   <div id="app">
-    <img alt="vote2day logo" src="./assets/logo.png">
+    <!-- <img alt="vote2day logo" src="./assets/logo.png"> -->
     <Header/>
-    <LookUpReps/>
-    <Introduction msg="Voice Your Vote"/>
+    <FindReps/>
+    <Reps v-bind:reps="reps"/>
   </div>
 </template>
 
 <script>
-import Introduction from './components/Introduction.vue'
 import Header from './components/Header.vue'
-import LookUpReps from './components/LookUpReps.vue'
+import FindReps from './components/FindReps.vue'
+import Reps from './components/Reps.vue'
 
 export default {
   name: 'app',
   components: {
     Header,
-    Introduction
+    FindReps,
+    Reps
+  },
+  data() {
+    return {
+      reps: []
+    }
   }
 }
 </script>
