@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <AddTodo v-on:find-districts="findDistricts" />
-    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" />
+    <SearchBar v-on:find-districts="findDistricts" />
+    <Districts v-bind:districts="districts" v-on:rem-district="removeDistrict" />
   </div>
 </template>
 
@@ -17,30 +17,26 @@ export default {
   },
   data() {
     return {
-      todos: []
+      districts: []
     }
   },
   methods: {
-    deleteTodo(id) {
-      axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-        .then(res => this.todos = this.todos.filter(todo => todo.id !== id))
+    removeDistrict(id) {
+      axios.delete(`https://jsonplaceholder.typicode.com/todos/${number}`)
+        .then(res => this.districts = this.districts.filter(district => district.number !== number))
         .catch(err => console.log(err));
     },
-    addTodo(newTodo) {
-      const { title, completed } = newTodo;
-      axios.post('https://jsonplaceholder.typicode.com/todos', {
-        title,
-        completed
-      })
-        .then(res => this.todos = [...this.todos, res.data])
+    findDistricts(address) {
+      axios.get(`https://api.geocod.io/v1.4/geocode?q=${address}&fields=cd&api_key=8d9534882ad3d344da9242ada848d5574a88a99`)
+        .then(res => this.districts = res.data)
         .catch(err => console.log(err));
     }
   },
-  created() {
-    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
-      .then(res => this.todos = res.data)
-      .catch(err => console.log(err));
-  }
+  // created() {
+  //   axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
+  //     .then(res => this.todos = res.data)
+  //     .catch(err => console.log(err));
+  // }
 }
 </script>
 
@@ -55,12 +51,13 @@ export default {
     line-height: 1.4;
   }
   .btn {
-    display: inline-block;
     border: none;
     background: #555;
     color: #fff;
-    padding: 7px 20px;
     cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    padding: 7px 20px;
   }
   .btn:hover {
     background: #666;

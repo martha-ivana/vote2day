@@ -2,7 +2,7 @@
   <header class="header">
     <h1>vote2day</h1>
     <div id="nav">
-      <router-link to="/">home</router-link>
+      <!-- <router-link to="/">home</router-link> -->
       <!-- <router-link to="/signup">sign up</router-link>
       <router-link to="/login">log in</router-link> -->
     </div>
@@ -18,7 +18,7 @@ export default {
 <style scoped>
   .header {
     background: #0b4f6c;
-    color: #edddd4;
+    color: #ffffff;
     text-align: center;
     padding: 10px;
   }

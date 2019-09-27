@@ -1,8 +1,8 @@
 <template>
-  <div class="todo-item" v-bind:class="{'is-complete':todo.completed}">
+  <div class="single-district" v-bind:class="{'is-selected':district.selected}">
     <p>
       <input type="checkbox" v-on:change="selectDistrict" v-bind:checked="district.selected">
-      {{todo.title}}
+      {{district.name}}
       <button @click="$emit('del-todo', todo.id)" class="del">x</button>
       </p>
   </div>
@@ -21,13 +21,13 @@ export default {
 </script>
 
 <style scoped>
-  .todo-item {
+  .single-district {
     background: #f4f4f4;
     padding: 10px;
     border-bottom: 1px #ccc dotted;
   }
-  .is-complete {
-    text-decoration: line-through;
+  .is-selected {
+    text-decoration: underline;
   }
   .del {
     background: #ff0000;
