@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SearchBar v-on:find-districts="findDistricts" />
-    <Districts v-bind:districts="districts" v-on:rem-district="removeDistrict" />
+    <Districts v-bind:districts="districts" />
   </div>
 </template>
 
@@ -21,13 +21,9 @@ export default {
     }
   },
   methods: {
-    removeDistrict(id) {
-      axios.delete(`https://jsonplaceholder.typicode.com/todos/${number}`)
-        .then(res => this.districts = this.districts.filter(district => district.number !== number))
-        .catch(err => console.log(err));
-    },
-    findDistricts(address) {
-      axios.get(`https://api.geocod.io/v1.4/geocode?q=${address}&fields=cd&api_key=8d9534882ad3d344da9242ada848d5574a88a99`)
+    findDistricts(newAddress) {
+      console.log('ADDRESS GET REQUEST HAS BEEN MADE!')
+      axios.get(`https://api.geocod.io/v1.4/geocode?q=${newAddress}&fields=cd&api_key=8d9534882ad3d344da9242ada848d5574a88a99`)
         .then(res => this.districts = res.data)
         .catch(err => console.log(err));
     }

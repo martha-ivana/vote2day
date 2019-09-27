@@ -12,21 +12,16 @@ export default {
   name: "SearchBar",
   data() {
     return {
-      name: '',
       address: ''
     }
   },
   methods: {
     findDistricts() {
-      const district = {
-        name: this.name,
-        address: this.address,
-        number: this.number,
+      const newAddress = {
+        address: this.address
       }
-      this.$emit('find-districts', district);
-      this.name = '';
-      this.address = '';
-      this.number;
+      this.$emit('find-districts', newAddress);
+      this.address = ''
     }
   }
 }

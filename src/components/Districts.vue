@@ -1,13 +1,14 @@
 <template>
   <div>
-    <div v-bind:key="district.id" v-for="district in districts">
-      <SingleDistrict v-bind:todo="todo" v-on:del-todo="$emit('del-todo', todo.id)" />
+    <div v-bind:key="district.number" v-for="district in districts">
+      <SingleDistrict v-bind:district="district" />
     </div>
   </div>
 </template>
 
 <script>
 import SingleDistrict from './SingleDistrict.vue';
+
 export default {
   name: "Districts",
   components: {
