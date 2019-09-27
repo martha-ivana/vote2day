@@ -4,7 +4,7 @@
     <p>
       <input type="checkbox" v-on:change="selectDistrict" v-bind:checked="district.selected">
       {{district.name}}
-      </p>
+    </p>
   </div>
 </template>
 

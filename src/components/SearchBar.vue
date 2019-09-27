@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import uuid from 'uuid';
 export default {
   name: "SearchBar",
   data() {
@@ -18,9 +19,12 @@ export default {
   methods: {
     findDistricts() {
       const newAddress = {
+        id: uuid.v4(),
         address: this.address
       }
-      this.$emit('find-districts', newAddress);
+      const inputAddress = newAddress.address
+      this.$emit('find-districts', inputAddress);
+
       this.address = ''
     }
   }

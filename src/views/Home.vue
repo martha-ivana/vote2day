@@ -21,10 +21,10 @@ export default {
     }
   },
   methods: {
-    findDistricts(newAddress) {
+    findDistricts(address) {
       console.log('ADDRESS GET REQUEST HAS BEEN MADE!')
-      axios.get(`https://api.geocod.io/v1.4/geocode?q=${newAddress}&fields=cd&api_key=8d9534882ad3d344da9242ada848d5574a88a99`)
-        .then(res => this.districts = res.data)
+      axios.get(`https://api.geocod.io/v1.4/geocode?q=${address}&fields=cd&api_key=8d9534882ad3d344da9242ada848d5574a88a99`)
+        .then(res => this.districts = res.data.results)
         .catch(err => console.log(err));
     }
   },
