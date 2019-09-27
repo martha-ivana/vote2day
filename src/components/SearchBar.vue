@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="findDistricts">
-      <input type="text" v-model="address" name="address" placeholder="enter your zipcode or, for more accurate results, your full street address">
+      <input type="text" v-model="address" name="address" placeholder="enter your zipcode OR for more accurate results, your full street address with city, state, and zipcode">
       <input type="submit" value="search" class="btn">
     </form>
   </div>
