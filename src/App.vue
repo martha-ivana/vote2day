@@ -1,31 +1,12 @@
 <template>
   <div id="app">
-    <!-- <img alt="vote2day logo" src="./assets/logo.png"> -->
-    <Header/>
-    <FindReps/>
-    <Reps v-bind:reps="reps"/>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
-
-<script>
-import Header from './components/Header.vue'
-import FindReps from './components/FindReps.vue'
-import Reps from './components/Reps.vue'
-
-export default {
-  name: 'app',
-  components: {
-    Header,
-    FindReps,
-    Reps
-  },
-  data() {
-    return {
-      reps: []
-    }
-  }
-}
-</script>
 
 <style>
 #app {
