@@ -1,12 +1,9 @@
 <template>
-<!-- if district is selected, bind it to the district.selected class -->
   <div class="single-district">
       <h3>{{ district.name }}</h3>
-      
       <div v-if="district.phones">
         <sub> ★ {{ district.phones[0] }} ★ </sub>
       </div>
-      
       <div v-if="district.emails">
         <sub> ★ {{ district.emails[0] }} ★ </sub>
       </div>
