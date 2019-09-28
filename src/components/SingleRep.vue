@@ -2,14 +2,14 @@
 <!-- if district is selected, bind it to the district.selected class -->
   <div class="single-district" v-bind:class="{'is-selected':district.selected}">
     <p>
-      <input type="checkbox" v-on:change="selectDistrict" v-bind:checked="district.selected"> {{ district.name }}
+      <input type="checkbox" v-on:change="selectDistrict" v-bind:checked="district.selected"> {{ district.name }} ★
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: "SingleDistrict",
+  name: "SingleRep",
   props: ["district"],
   methods: {
     selectDistrict() {
