@@ -18,12 +18,7 @@ export default {
   },
   methods: {
     findDistricts() {
-      const newAddress = {
-        id: uuid.v4(),
-        address: this.address
-      }
-      const inputAddress = newAddress.address
-      this.$emit('find-districts', inputAddress);
+      this.$emit('find-districts', this.address);
 
       this.address = ''
     }

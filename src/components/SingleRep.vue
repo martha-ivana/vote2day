@@ -24,6 +24,7 @@ export default {
     background: #f4f4f4;
     padding: 10px;
     border-bottom: 2px #c44536 dotted;
+    justify-content: space-between
   }
   .is-selected {
     text-decoration: underline;
