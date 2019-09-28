@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="findDistricts">
-      <input type="text" v-model="address" name="address" placeholder="enter your zipcode OR for more accurate results, your full street address with city, state, and zipcode">
+      <input type="text" v-model="address" name="address" placeholder="enter your zipcode OR for more accurate results, your full street address with city, state, and zipcode [ e.g. 308 Hooper St, Brooklyn, NY 11211 ]">
       <input type="submit" value="search" class="btn">
     </form>
   </div>
@@ -53,6 +53,6 @@ export default {
 }
 
 .btn:hover {
-  background: #392f5a;
+  background: #333  ;
 }
 </style>

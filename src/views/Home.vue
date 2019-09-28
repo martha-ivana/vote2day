@@ -22,17 +22,15 @@ export default {
   },
   methods: {
     findDistricts(address) {
-      console.log('ADDRESS GET REQUEST HAS BEEN MADE!')
-      axios.get(`https://api.geocod.io/v1.4/geocode?q=${address}&fields=cd&api_key=8d9534882ad3d344da9242ada848d5574a88a99`)
-        .then(res => this.districts = res.data.results)
-        .catch(err => console.log(err));
+      axios.get(`https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyB76-kRbeKceg0YVbbHLXRErMC_eJI4dR8&address=${address}`)
+        .then(res => this.districts = res.data.officials)
+        .catch(err => console.log(err))
+      
+      // const res = await axios.get(`https://api.geocod.io/v1.4/geocode?q=${address}&fields=cd&api_key=8d9534882ad3d344da9242ada848d5574a88a99`)
+      //   .then(res => this.districts = res.data)
+      //   .catch(err => console.log(err))
     }
-  },
-  // created() {
-  //   axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
-  //     .then(res => this.todos = res.data)
-  //     .catch(err => console.log(err));
-  // }
+  }
 }
 </script>
 
