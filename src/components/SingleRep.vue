@@ -1,9 +1,15 @@
 <template>
 <!-- if district is selected, bind it to the district.selected class -->
-  <div class="single-district" v-bind:class="{'is-selected':district.selected}">
-    <p>
-      <input type="checkbox" v-on:change="selectDistrict" v-bind:checked="district.selected"> {{ district.name }} ★
-    </p>
+  <div class="single-district">
+      <h3>{{ district.name }}</h3>
+      
+      <div v-if="district.phones">
+        <sub> ★ {{ district.phones[0] }} ★ </sub>
+      </div>
+      
+      <div v-if="district.emails">
+        <sub> ★ {{ district.emails[0] }} ★ </sub>
+      </div>
   </div>
 </template>
 
@@ -11,20 +17,20 @@
 export default {
   name: "SingleRep",
   props: ["district"],
-  methods: {
-    selectDistrict() {
-      this.district.selected = !this.district.selected;
-    }
-  }
 }
 </script>
 
 <style scoped>
+
+  h3 {
+    color: #0b4f6c;
+  }
+  
   .single-district {
     background: #f4f4f4;
     padding: 10px;
     border-bottom: 2px #c44536 dotted;
-    justify-content: space-between
+    justify-content: space-between;
   }
   .is-selected {
     text-decoration: underline;
