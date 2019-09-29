@@ -20,6 +20,8 @@ import SingleElection from './SingleElection.vue';
 import axios from 'axios';
 import moment from 'moment';
 
+let config = {'X-API-Key': 'IXoAMnNJe3fKvZXXgAD412lHfwbONJ5Kb6EGxIAN'}
+
 
 export default {
   name: "YourBallot",
@@ -29,7 +31,7 @@ export default {
   },
   data() {
     return {
-      ballots: [],
+      bills: [],
       pollingLocations: [],
     }
   },
@@ -37,9 +39,10 @@ export default {
     findVoterInfo(address) {
       axios.get(`https://www.googleapis.com/civicinfo/v2/voterinfo?address=${address}&electionId=2000&key=AIzaSyB76-kRbeKceg0YVbbHLXRErMC_eJI4dR8`)
       .then(res => {
-        this.ballots = res.data.contests;
         this.pollingLocations = res.data.pollingLocations[0];
       })
+      axios.get('https://api.propublica.org/congress/v1/116/both/bills/active.json', {headers: config})
+      .then(res => this.bills = res.data)
       .catch(err => console.log(err))
     }
   }
