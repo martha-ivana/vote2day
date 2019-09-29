@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="elections-title">These elections are coming up...</h2>
+    <h2 class="elections-title">These elections are coming up (not specific to your location)...</h2>
     <div v-bind:key="election.id" v-for="election in elections">
       <SingleElection v-bind:election="election"/>
     </div>
