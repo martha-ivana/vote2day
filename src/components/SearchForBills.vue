@@ -1,7 +1,7 @@
 <template>
   <div>
-    <form @submit.prevent="findVoterInfo">
-      <input type="text" v-model="address" name="address" placeholder="enter your zipcode OR for more accurate results, your full street address with city, state, and zipcode [ e.g. 308 Hooper St, Brooklyn, NY 11211 ]">
+    <form @submit.prevent="findBills">
+      <input type="text" v-model="searchTerm" name="searchTerm" placeholder="enter a search term to find active bills that match [ e.g. environment ]">
       <input type="submit" value="search" class="btn">
     </form>
   </div>
@@ -9,16 +9,16 @@
 
 <script>
 export default {
-  name: "VoterInfoSearch",
+  name: "SearchForBills",
   data() {
     return {
-      address: ''
+      searchTerm: ''
     }
   },
   methods: {
-    findVoterInfo() {
-      this.$emit('find-voter-info', this.address);
-      this.address = ''
+    findBills(searchTerm) {
+      this.$emit('find-bills', this.searchTerm);
+      this.searchTerm = ''
     }
   }
 }

@@ -20,12 +20,12 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './components/Elections.vue')
     },
     {
-      path: '/ballot',
-      name: 'ballot',
+      path: '/bills',
+      name: 'bills',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './components/YourBallot.vue')
+      component: () => import(/* webpackChunkName: "about" */ './components/Bills.vue')
     }
   ]
 })
