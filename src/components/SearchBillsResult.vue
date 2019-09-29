@@ -10,7 +10,7 @@
 import SingleBill from './SingleBill.vue';
 
 export default {
-  name: "SearchBills",
+  name: "SearchBillsResult",
   components: {
     SingleBill
   },

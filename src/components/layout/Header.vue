@@ -4,7 +4,8 @@
     <div id="nav">
       <!-- <router-link to="/bills">upcoming votes</router-link> -->
       <router-link to="/">find your reps</router-link>
-      <router-link to="/bills">see active bills</router-link>
+      <router-link to="/bills">search bills</router-link>
+      <router-link to="/latest">latest bills</router-link>
       <router-link to="/elections">upcoming elections</router-link>
     </div>
   </header>
