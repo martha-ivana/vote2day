@@ -2,10 +2,15 @@
   <div>
     <VoterInfoSearch v-on:find-voter-info="findVoterInfo" />
     <h3>Your polling site is...</h3>
-    <h3>These candidates are on your next ballot...</h3>
-    <div v-bind:key="election.id" v-for="election in elections">
-      <SingleElection v-bind:election="election"/>
+    <div v-if="this.pollingLocations.address" class="polling-location">
+      <h2>{{ this.pollingLocations.address.locationName }} </h2>
+      {{ this.pollingLocations.address.line1 }}
+      <br/>{{ this.pollingLocations.address.city }}, {{ this.pollingLocations.address.state }} {{ this.pollingLocations.address.zip }}
     </div>
+    <h3>These candidates are on your next ballot...</h3>
+    <!-- <div v-bind:key="election.id" v-for="election in elections">
+      <SingleElection v-bind:election="election"/>
+    </div> -->
   </div>
 </template>
 
@@ -24,12 +29,17 @@ export default {
   },
   data() {
     return {
-      voterInfo: []
+      ballots: [],
+      pollingLocations: [],
     }
   },
   methods: {
     findVoterInfo(address) {
-      axios.get(`https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyB76-kRbeKceg0YVbbHLXRErMC_eJI4dR8&address=${address}`)
+      axios.get(`https://www.googleapis.com/civicinfo/v2/voterinfo?address=${address}&electionId=2000&key=AIzaSyB76-kRbeKceg0YVbbHLXRErMC_eJI4dR8`)
+      .then(res => {
+        this.ballots = res.data.contests;
+        this.pollingLocations = res.data.pollingLocations[0];
+      })
       .catch(err => console.log(err))
     }
   }
@@ -37,7 +47,7 @@ export default {
 </script>
 
 <style scoped>
-.elections-title {
+.polling-location {
   background-color: #931621;
   color: #edddd4;
 }
