@@ -46,10 +46,6 @@ export default {
           this.districts[3].office = this.offices[2]
         })
         .catch(err => console.log(err))
-      
-      // const res = await axios.get(`https://api.geocod.io/v1.4/geocode?q=${address}&fields=cd&api_key=8d9534882ad3d344da9242ada848d5574a88a99`)
-      //   .then(res => this.districts = res.data)
-      //   .catch(err => console.log(err))
     }
   }
 }
@@ -61,6 +57,11 @@ export default {
     margin: 0;
     padding: 0;
   }
+  
+  a {
+    color: #fff;
+  }
+  
   body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.4;

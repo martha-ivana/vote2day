@@ -10,6 +10,7 @@
       <div v-if="district.emails">
         <sub> ★ {{ district.emails[0] }} ★ </sub>
       </div>
+      <sub> ★ <b><a v-bind:href="district.urls[0]">website</a></b> ★ </sub>
   </div>
 </template>
 
@@ -21,15 +22,19 @@ export default {
 </script>
 
 <style scoped>
-
+  
+  a {
+    color: #931621;
+  }
+  a:visited {
+    color: #0b4f6c;
+  }
   h2 {
     color: #0b4f6c;
   }
-  
   .office {
     color: #0b4f6c;
   }
-  
   .single-rep {
     background: #f4f4f4;
     padding: 10px;
