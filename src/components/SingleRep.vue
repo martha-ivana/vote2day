@@ -1,8 +1,8 @@
 <template>
   <div class="single-rep">
-      <h3>{{ district.name }}</h3>
-      <div v-if="district.office">
-        ★ {{ district.office.name }} ★
+      <h2>{{ district.name }}</h2>
+      <div v-if="district.office" class="office">
+        {{ district.office.name }}
       </div>
       <div v-if="district.phones">
         <sub> ★ {{ district.phones[0] }} ★ </sub>
@@ -22,7 +22,11 @@ export default {
 
 <style scoped>
 
-  h3 {
+  h2 {
+    color: #0b4f6c;
+  }
+  
+  .office {
     color: #0b4f6c;
   }
   

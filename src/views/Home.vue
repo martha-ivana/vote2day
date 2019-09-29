@@ -42,7 +42,7 @@ export default {
               }
             }
           }
-          // hard coded 4th index to be senator
+          // hard coding second senators title
           this.districts[3].office = this.offices[2]
         })
         .catch(err => console.log(err))
