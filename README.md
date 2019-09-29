@@ -1,29 +1,13 @@
-# vote2day
+# vote2day 🗳 
 
-## Project setup
+<b>vote2day</b> is a simple Single Page Application (SPA) that helps users find their voting districts, their local Congress representatives, and the country's upcoming elections. 
+
+Built by <a href="https://www.linkedin.com/in/martha-ivana/"> Martha Syryca</a> using <a href="http://vuejs.org">Vue.js</a>, <a href="https://developers.google.com/civic-information">Google Civic Information API</a>, and <a href="https://momentjs.com/">Moment</a>.
+
+## to install and run vote2day 
 ```
 npm install
 ```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
