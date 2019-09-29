@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h2 class="elections-title">These elections are coming up...</h2>
     <div v-bind:key="election.id" v-for="election in elections">
       <SingleElection v-bind:election="election"/>
     </div>
@@ -35,4 +36,8 @@ export default {
 </script>
 
 <style scoped>
+.elections-title {
+  background-color: #931621;
+  color: #edddd4;
+}
 </style>
