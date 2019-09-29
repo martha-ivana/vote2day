@@ -3,9 +3,9 @@
     <VoterInfoSearch v-on:find-voter-info="findVoterInfo" />
     <h3>Your polling site is...</h3>
     <div v-if="this.pollingLocations.address" class="polling-location">
-      <h2>{{ this.pollingLocations.address.locationName }} </h2>
-      {{ this.pollingLocations.address.line1 }}
-      <br/>{{ this.pollingLocations.address.city }}, {{ this.pollingLocations.address.state }} {{ this.pollingLocations.address.zip }}
+      <h1>{{ this.pollingLocations.address.locationName }} </h1>
+      <h2>{{ this.pollingLocations.address.line1 }}
+      <br/>{{ this.pollingLocations.address.city }}, {{ this.pollingLocations.address.state }} {{ this.pollingLocations.address.zip }}</h2>
     </div>
     <h3>These candidates are on your next ballot...</h3>
     <!-- <div v-bind:key="election.id" v-for="election in elections">
@@ -22,7 +22,7 @@ import moment from 'moment';
 
 
 export default {
-  name: "Elections",
+  name: "YourBallot",
   components: {
     SingleElection,
     VoterInfoSearch
