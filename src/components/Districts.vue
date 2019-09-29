@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-bind:key="district.id" v-for="district in districts">
-      <SingleRep v-bind:district="district" />
+      <SingleRep v-bind:district="district"/>
     </div>
   </div>
 </template>

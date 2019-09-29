@@ -18,7 +18,6 @@ export default {
   methods: {
     findDistricts() {
       this.$emit('find-districts', this.address);
-
       this.address = ''
     }
   }

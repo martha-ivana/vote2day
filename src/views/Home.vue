@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Divisions from '../components/Divisions'
+import Divisions from '../components/Divisions';
 import Districts from '../components/Districts';
 import SearchBar from '../components/SearchBar';
 import axios from 'axios';
@@ -34,6 +34,16 @@ export default {
           this.divisions = res.data.divisions
           this.districts = res.data.officials
           this.offices = res.data.offices
+          // connect offices to representatives
+          for (let i = 0; i < this.offices.length; i++) {
+            for (let j = 0; j < this.districts.length; j++) {
+              if (this.offices[i].officialIndices[0] === j) {
+                this.districts[j].office = this.offices[i]
+              }
+            }
+          }
+          // hard coded 4th index to be senator
+          this.districts[3].office = this.offices[2]
         })
         .catch(err => console.log(err))
       
