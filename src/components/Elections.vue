@@ -12,14 +12,16 @@ import SingleElection from './SingleElection.vue';
 import axios from 'axios';
 import moment from 'moment';
 
+
 export default {
   name: "Elections",
   components: {
-    SingleElection,
+    SingleElection
   },
   data() {
     return {
-      elections: []
+      elections: [],
+      voterInfo: []
     }
   },
   created: function() {
