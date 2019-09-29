@@ -30,22 +30,22 @@ export default {
   methods: {
     findDistricts(address) {
       axios.get(`https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyB76-kRbeKceg0YVbbHLXRErMC_eJI4dR8&address=${address}`)
-        .then(res => {
-          this.divisions = res.data.divisions
-          this.districts = res.data.officials
-          this.offices = res.data.offices
-          // connect offices to representatives
-          for (let i = 0; i < this.offices.length; i++) {
-            for (let j = 0; j < this.districts.length; j++) {
-              if (this.offices[i].officialIndices[0] === j) {
-                this.districts[j].office = this.offices[i]
-              }
+      .then(res => {
+        this.divisions = res.data.divisions
+        this.districts = res.data.officials
+        this.offices = res.data.offices
+        // connect offices to representatives
+        for (let i = 0; i < this.offices.length; i++) {
+          for (let j = 0; j < this.districts.length; j++) {
+            if (this.offices[i].officialIndices[0] === j) {
+              this.districts[j].office = this.offices[i]
             }
           }
-          // hard coding second senators title
-          this.districts[3].office = this.offices[2]
-        })
-        .catch(err => console.log(err))
+        }
+        // hard code second senator title...
+        this.districts[3].office = this.offices[2]
+      })
+      .catch(err => console.log(err))
     }
   }
 }
