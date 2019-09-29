@@ -1,7 +1,10 @@
 <template>
   <div class="single-bill">
-      <h2>{{ election.name }} </h2>
-      <p>taking place {{ election.timeFromNow }} on {{ election.electionDay }}</p>
+      <h3>{{ bill.number }} </h3>
+      <h3>{{ bill.primary_subject }}</h3>
+      <sub>introduced on {{ bill.introduced_date }}</sub>
+      <br><sub><b>last major action</b>: {{ bill.latest_major_action }} on {{ bill.latest_major_action_date }}</sub>
+      <br>★ <b><a v-bind:href="bill.govtrack_url">read more about this bill on govtrack.us</a></b> ★ 
   </div>
 </template>
 
@@ -20,7 +23,7 @@ export default {
   a:visited {
     color: #0b4f6c;
   }
-  h2 {
+  h3 {
     color: #0b4f6c;
   }
   .office {

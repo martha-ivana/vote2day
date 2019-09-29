@@ -1,13 +1,19 @@
 <template>
   <div>
     <SearchForBills v-on:find-bills="findBills" />
+    <h3>These bills resulted from your search...</h3>
+    <SearchBills v-bind:searchResults="searchResults"/>
     <h3>These are the 20 most recently active bills in the Senate...</h3>
+    <SenateBills v-bind:senateBills="senateBills"/>
     <h3>These are the 20 most recently active bills in the House...</h3>
-    <h3>These are bills resulting from your search...</h3>
+    <HouseBills v-bind:houseBills="houseBills"/>
   </div>
 </template>
 
 <script>
+import HouseBills from './HouseBills.vue';
+import SenateBills from './SenateBills.vue';
+import SearchBills from './SearchBills.vue';
 import SearchForBills from './SearchForBills.vue';
 import axios from 'axios';
 import moment from 'moment';
@@ -17,6 +23,9 @@ let config = {'X-API-Key': 'IXoAMnNJe3fKvZXXgAD412lHfwbONJ5Kb6EGxIAN'}
 export default {
   name: "Bills",
   components: {
+    HouseBills,
+    SenateBills,
+    SearchBills,
     SearchForBills
   },
   data() {

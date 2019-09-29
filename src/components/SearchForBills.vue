@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="findBills">
-      <input type="text" v-model="searchTerm" name="searchTerm" placeholder="enter a search term to find active bills that match [ e.g. environment ]">
+      <input type="text" v-model="searchTerm" name="searchTerm" placeholder="enter a search term to find bills that match the subject matter [ e.g. environment ]">
       <input type="submit" value="search" class="btn">
     </form>
   </div>
