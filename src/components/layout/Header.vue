@@ -30,4 +30,15 @@ export default {
     display: flex;
     justify-content: space-between;
   }
+  
+  @media screen and (max-width: 480px) {
+  a {
+    font-size: .7em;
+    font-weight: 500;
+  }
+  footer.footer {
+    bottom: 0;
+    position: absolute;
+  }
+}
 </style>
