@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style scoped>
-  form {
+    form {
     display: flex;
   }
   input[type="text"] {
@@ -34,6 +34,8 @@ export default {
   }
   input[type="submit"] {
     flex: 2;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
   }
 
 .btn {
@@ -47,5 +49,10 @@ export default {
 
 .btn:hover {
   background: #333  ;
+}
+
+input, textarea {
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 </style>
