@@ -40,7 +40,9 @@ a:visited {
 }
 
 a:hover {
-  text-decoration: none;
+  background-color: #931621;
+  color: #edddd4;
+  text-decoration: underline;
 }
 
 * {
@@ -55,13 +57,8 @@ a:hover {
     font-size: 2.5em;
   }
   a {
-  font-size: .8em;
-  font-weight: 500;
-  }
-  footer.footer {
-    background-color: #edddd4;
-    bottom: 0;
-    position: absolute;
+    font-size: 1em;
+    font-weight: 500;
   }
 }
 
