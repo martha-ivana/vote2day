@@ -47,4 +47,22 @@ a:hover {
   margin: 0px;
 }
 
+@media only screen and (max-width: 414px) {
+  body {
+    font-size: 1em;
+  }
+  h1 {
+    font-size: 2.5em;
+  }
+  a {
+  font-size: .8em;
+  font-weight: 500;
+  }
+  footer.footer {
+    background-color: #edddd4;
+    bottom: 0;
+    position: absolute;
+  }
+}
+
 </style>

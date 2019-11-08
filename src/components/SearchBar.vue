@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="findDistricts">
-      <input type="text" v-model="address" name="address" placeholder="enter your full street address with city, state, and zipcode [ e.g. 308 Hooper St, Brooklyn, NY 11211 ]">
+      <input type="text" v-model="address" name="address" placeholder="enter your street address with city, state, and zipcode [ e.g. 308 Hooper St, Brooklyn, NY 11211 ]">
       <input type="submit" value="search" class="btn">
     </form>
   </div>
@@ -34,6 +34,8 @@ export default {
   }
   input[type="submit"] {
     flex: 2;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
   }
 
 .btn {
@@ -47,5 +49,10 @@ export default {
 
 .btn:hover {
   background: #333  ;
+}
+
+input, textarea {
+  -webkit-appearance: none;
+  border-radius: 0;
 }
 </style>
