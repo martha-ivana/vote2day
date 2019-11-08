@@ -40,8 +40,7 @@ a:visited {
 }
 
 a:hover {
-  background-color: #931621;
-  color: #edddd4;
+  color: #fff;
   text-decoration: underline;
 }
 

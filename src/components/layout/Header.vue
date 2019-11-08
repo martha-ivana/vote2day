@@ -51,6 +51,7 @@ export default {
     }
     #nav-toggle {
       display: initial;
+      cursor: pointer;
     }
     .navbar a {
       display: none;

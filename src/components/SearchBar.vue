@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="findDistricts">
-      <input type="text" v-model="address" name="address" placeholder="enter your street address with city, state, and zipcode [ e.g. 308 Hooper St, Brooklyn, NY 11211 ]">
+      <input type="text" v-model="address" name="address" placeholder="enter your street address with city, state, & zipcode [ e.g. 308 Hooper St, Brooklyn, NY 11211 ]">
       <input type="submit" value="search" class="btn">
     </form>
   </div>
