@@ -27,12 +27,14 @@ export default {
   created: function() {
     axios.get(`https://www.googleapis.com/civicinfo/v2/elections?alt=json&prettyPrint=true&key=AIzaSyCLMVdSf6hH5w1QvbYt1PNS1hNFheRiz40`)
     .then(res => {
-      this.elections = res.data.elections
-      this.elections.forEach(election => 
+      // skip test election at 1st index
+      this.elections = res.data.elections.slice(1)
+      this.elections.forEach(election =>
         election.timeFromNow = moment(election.electionDay).endOf('day').fromNow()
       )
     })
-    .catch(err => console.log(err))
+    // eslint-disable-next-line no-console
+    .catch(err => console.error(err))
   }
 }
 </script>

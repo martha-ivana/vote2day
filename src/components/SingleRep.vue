@@ -5,12 +5,12 @@
         {{ district.office.name }}
       </div>
       <div v-if="district.phones">
-        <sub> ★ {{ district.phones[0] }} ★ </sub>
+        <sub> ★ {{ district.phones ? district.phones[0] : '' }} ★ </sub>
       </div>
       <div v-if="district.emails">
-        <sub> ★ {{ district.emails[0] }} ★ </sub>
+        <sub> ★ {{ district.emails ? district.emails[0] : '' }} ★ </sub>
       </div>
-      <sub> ★ <b><a v-bind:href="district.urls[0]">website</a></b> ★ </sub>
+      <sub> ★ <b><a v-bind:href="district.urls ? district.urls[0] : ''">website</a></b> ★ </sub>
   </div>
 </template>
 

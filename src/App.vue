@@ -30,7 +30,7 @@ export default {
 }
 
 a {
-  color: #fff;
+  color: #2c3e50;
   text-decoration: none;
 }
 

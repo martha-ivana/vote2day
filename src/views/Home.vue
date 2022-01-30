@@ -1,16 +1,18 @@
 <template>
   <div id="app">
     <SearchBar v-on:find-districts="findDistricts" />
-    <h3>You are within the following voting districts...</h3>
-    <Divisions v-bind:divisions="divisions"/>
-    <h3>Your polling site is...</h3>
-    <div v-if="this.pollingLocations.address" class="polling-location">
-      <h1>{{ this.pollingLocations.address.locationName }} </h1>
-      <h2>{{ this.pollingLocations.address.line1 }}
-      <br/>{{ this.pollingLocations.address.city }}, {{ this.pollingLocations.address.state }} {{ this.pollingLocations.address.zip }}</h2>
+    <div v-if="hasData">
+      <h3>You are within the following voting districts...</h3>
+      <Divisions v-bind:divisions="divisions"/>
+      <h3>Your polling site is...</h3>
+      <div v-if="this.pollingLocations.address" class="polling-location">
+        <h1>{{ this.pollingLocations.address.locationName }} </h1>
+        <h2>{{ this.pollingLocations.address.line1 }}
+        <br/>{{ this.pollingLocations.address.city }}, {{ this.pollingLocations.address.state }} {{ this.pollingLocations.address.zip }}</h2>
+      </div>
+      <h3>Your current representatives are...</h3>
+      <Districts v-bind:districts="districts"/>
     </div>
-    <h3>Your current representatives are...</h3>
-    <Districts v-bind:districts="districts"/>
   </div>
 </template>
 
@@ -34,6 +36,11 @@ export default {
       pollingLocations: []
     }
   },
+  computed: {
+    hasData () {
+      return this.divisions.length || this.districts.length || this.offices.length || this.pollingLocations.length
+    }
+  },
   methods: {
     findDistricts(address) {
       axios.get(`https://www.googleapis.com/civicinfo/v2/representatives?key=AIzaSyB76-kRbeKceg0YVbbHLXRErMC_eJI4dR8&address=${address}`)
@@ -54,9 +61,10 @@ export default {
       })
       axios.get(`https://www.googleapis.com/civicinfo/v2/voterinfo?address=${address}&electionId=2000&key=AIzaSyB76-kRbeKceg0YVbbHLXRErMC_eJI4dR8`)
       .then(res => {
-        this.pollingLocations = res.data.pollingLocations[0];
+        this.pollingLocations = res.data.pollingLocations ? res.data.pollingLocations[0] : [];
       })
-      .catch(err => console.log(err))
+      // eslint-disable-next-line no-console
+      .catch(err => console.error(err))
     }
   }
 }
